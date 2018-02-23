@@ -3,7 +3,9 @@ class Sorter {
     this.data = new Array() // main data storage
     // default comparator
     this.comparator = function(a, b){
-      return a - b;
+      if(a > b) return 1;
+      if(a < b) return -1;
+      if(a == b) return 0;
     }
   }
 
@@ -24,6 +26,7 @@ class Sorter {
   }
 
   sort(indices) {
+    indices.sort((a, b) => (a - b));
     for(var i = 0; i < indices.length; i++){
       for(var j = 0; j < indices.length; j++){
           var indI = indices[i];
